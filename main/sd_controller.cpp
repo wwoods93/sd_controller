@@ -3,6 +3,8 @@
 #include <cstring>
 #include <stdio.h>
 #include <SD.h>
+
+#include "global.h"
 #include "sd_controller.h"
 
 
@@ -29,6 +31,7 @@ void sd_controller::initialize()
         sd_log.write("\n\n", 2); 
         sd_log.close(); 
         sd_log_append(SD_LOG_EVENT, SD_CREATE_SD_LOG_EVENT_TEXT); 
+        Serial.println("sd_log.txt created!");
         
     }
     else
@@ -44,6 +47,7 @@ void sd_controller::initialize()
         mc_log.write("\n\n", 2);
         mc_log.close();
         sd_log_append(SD_LOG_EVENT, SD_CREATE_MC_LOG_EVENT_TEXT);
+        Serial.println("mc_log.txt created!");
     }
     else
     {
@@ -59,6 +63,7 @@ void sd_controller::initialize()
         com_log.write("\n\n", 2);
         com_log.close();
         sd_log_append(SD_LOG_EVENT, SD_CREATE_COM_LOG_EVENT_TEXT);
+        Serial.println("com_log.txt created!");
     }
     else
     {
@@ -72,7 +77,8 @@ void sd_controller::initialize()
         mtr_log.write(FILE_NAME_MTR_LOG, FILE_NAME_LEN_MTR_LOG);
         mtr_log.write("\n\n", 2);
         mtr_log.close();  
-        sd_log_append(SD_LOG_EVENT, SD_CREATE_MTR_LOG_EVENT_TEXT);        
+        sd_log_append(SD_LOG_EVENT, SD_CREATE_MTR_LOG_EVENT_TEXT);
+        Serial.println("mtr_log.txt created!");        
     }
     else
     {
